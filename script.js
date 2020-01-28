@@ -29,8 +29,6 @@ function setup() {
     for (let i = 3; i < columns - 5; i++) {
          board[12][i].setObstacle()
     }
-    console.log(rows, columns)
-
     //starting and ending node configuration
     board[START_X][START_Y].fill = 0
     board[END_X][END_Y].fill = 'red'
@@ -40,7 +38,6 @@ function setup() {
 
 function draw() {
  
-  
     background(255);
     for (let i = 0; i < columns; i++) {
         for (let j = 0; j < rows; j++) {
