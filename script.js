@@ -26,9 +26,9 @@ function setup() {
         }
     }
 
-    //start node
-    board[START_X][START_Y].fill = 0
-    board[END_X][END_Y].fill = 100
+    //starting and ending node configuration
+    board[START_X][START_Y].fill = 
+    board[END_X][END_Y].fill = 'red'
     BFS_FINDER(board, [START_X, START_Y], [END_X, END_Y])
 
 }
@@ -81,8 +81,6 @@ async function BFS_FINDER(board, start, goal) {
     if (start == goal) {
         return "not much movement"
     }
-    
-    debugger
     while (queue) {
         //get the first maching board
         path = queue.shift()
@@ -100,10 +98,8 @@ async function BFS_FINDER(board, start, goal) {
                 //check if the path is valid
                 if (new_box_x > 0 && new_box_x < 20 && new_box_y > 0 && new_box_y < 20) {
                         //set the coloring of the board
-                        console.log(new_box_x, new_box_y)
-                  
                         board[new_box_x][new_box_y].fill = 4
-                        await wait(20)
+                        await wait(10)
                         new_path = [...path]
                         new_path.push([new_box_x, new_box_y])
                         queue.push(new_path)
